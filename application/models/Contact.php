@@ -8,40 +8,40 @@ class subContactType
 	
 	public function __construct ($input)
 	{
-		$_both= $_client= $_provider= false;
+		$this->_both= $this->_client= $this->_provider= false;
 		
 		foreach ($input as $_current)
 		{
-			if ($_current=="client")	$_client= true;
-			if ($_current=="provider") $_provider= true;
+			if ($_current=="client")	$this->_client= true;
+			if ($_current=="provider") $this->_provider= true;
 		}
 		
-		$_both= $_client AND $_provider;
+		$this->_both= $this->_client AND $this->_provider;
 	}
 	
 	public function setCType ($input)
 	{
 		foreach ($input as $current)
 		{
-			if ($current=="client")	$_client= true;
-			if ($current=="provider") $_provider= true;
+			if ($current=="client")	$this->_client= true;
+			if ($current=="provider") $this->_provider= true;
 		}
 		
-		$_both= $_client AND $_provider;
+		$this->_both= $this->_client AND $this->_provider;
 	}
 	
 	public function getCType()
 	{
-		if ($_both) return array('client', 'provider');
-		if ($_client) return array('client', '');
-		if ($_provider) return array('', 'provider');
+		if ($this->_both) return array('client', 'provider');
+		if ($this->_client) return array('client', '');
+		if ($this->_provider) return array('', 'provider');
 	}
 	
 	public function getCTypeText()
 	{
-		if ($_both) return "Cliente / Proveedor";
-		if ($_client) return "Cliente";
-		if ($_provider) return "Proveedor";
+		if ($this->_both) return "Cliente / Proveedor";
+		if ($this->_client) return "Cliente";
+		if ($this->_provider) return "Proveedor";
 	}
 }
 
@@ -52,30 +52,33 @@ class subContactAddress
 	
 	public function __construct ($input)
 	{
-		$_address= $input->address;
-		$_city=  $input->citi;
+		if ($input!=null)
+		{
+			$this->_address= $input->address;
+			$this->_city=  $input->city;
+		}
 	}
 	
 	public function setAddress($input)
 	{
-		$_address= $input;
+		$this->_address= $input;
 		return $this;
 	}
 	
 	public function setCity($input)
 	{
-		$_city= $input;
+		$this->_city= $input;
 		return $this;
 	}
 	
 	public function getAddress()
 	{
-		return $_address;
+		return $this->_address;
 	}
 	
 	public function getCity()
 	{
-		return $_city;
+		return $this->_city;
 	}
 }
 
@@ -88,55 +91,57 @@ class subContactSeller
 	
 	public function __construct ($input)
 	{
-		/*
-		$_id= $input->id;
-		$_name= $input->name;
-		$_identification= $input->identification;
-		$_observations= $input->observations;*/
+		if ($input!=null)
+		{
+			$this->_id= $input->id;
+			$this->_name= $input->name;
+			$this->_identification= $input->identification;
+			$this->_observations= $input->observations;
+		}
 	}
 	
 	public function setId ($input)
 	{
-		$_id= $input;
+		$this->_id= $input;
 		return $this;
 	}
 	
 	public function setName ($input)
 	{
-		$_name= $input;
+		$this->_name= $input;
 		return $this;
 	}
 	
 	public function setIdentification($input)
 	{
-		$_identification= $input;
+		$this->_identification= $input;
 		return $this;
 	}
 	
 	public function setObservations($input)
 	{
-		$_observations= $input;
+		$this->_observations= $input;
 		return $this;
 	}
 	
 	public function getId()
 	{
-		return $_id;
+		return $this->_id;
 	}
 	
 	public function getName()
 	{
-		return $_name;
+		return $this->_name;
 	}
 	
 	public function getIdentification()
 	{
-		return $_identification;
+		return $this->_identification;
 	}
 	
 	public function getObservations()
 	{
-		return $_observations;
+		return $this->_observations;
 	}
 }
 
@@ -148,42 +153,45 @@ class subContactTerm
 	
 	public function __construct ($input)
 	{
-		$_id= $input->id;
-		$_name= $input->name;
-		$_days= $input->days;
+		if ($input!=null)
+		{
+			$this->_id= $input->id;
+			$this->_name= $input->name;
+			$this->_days= $input->days;
+		}
 	}
 	
 	public function setId($input)
 	{
-		$_id= $input;
+		$this->_id= $input;
 		return $this;
 	}
 	
 	public function setName($input)
 	{
-		$_name= $input;
+		$this->_name= $input;
 		return $this;
 	}
 	
 	public function setDays($input)
 	{
-		$_days= $input;
+		$this->_days= $input;
 		return $this;
 	}
 	
 	public function getId()
 	{
-		return $_id;
+		return $this->_id;
 	}
 	
 	public function getName()
 	{
-		return $_name;
+		return $this->_name;
 	}
 	
 	public function getDays()
 	{
-		return $_days;
+		return $this->_days;
 	}
 }
 
@@ -194,30 +202,33 @@ class subContactPriceList
 	
 	public function __construct($input)
 	{
-		$_id= $input->id;
-		$_name= $input->name;
+		if ($input!=null)
+		{
+			$this->_id= $input->id;
+			$this->_name= $input->name;
+		}
 	}
 	
 	public function setId($input)
 	{
-		$_id= $input;
+		$this->_id= $input;
 		return $this;
 	}
 	
 	public function setName($input)
 	{
-		$_name= $input;
+		$this->_name= $input;
 		return $this;
 	}
 	
 	public function getId()
 	{
-		return $_id;
+		return $this->_id;
 	}
 	
 	public function getName()
 	{
-		return $_name;
+		return $this->_name;
 	}
 }
 
@@ -233,90 +244,98 @@ class subContactIntContact
 	
 	public function __construct ($input)
 	{
-		$_id= $input->id;
-		$_name= $input->name;
-		$_lastName= $input->lastName;
-		$_email= $input->email;
-		$_phone= $input->phone;
-		$_mobile= $input->mobile;
-		$_notify= $input->sendNotifications;
+		if ($input!=null)
+		{
+			$this->_id= $input->id;
+			$this->_name= $input->name;
+			$this->_lastName= $input->lastName;
+			$this->_email= $input->email;
+			$this->_phone= $input->phone;
+			$this->_mobile= $input->mobile;
+			$this->_notify= $input->sendNotifications;
+		}
 	}
 	
 	public function setId($input)
 	{
-		$_id= $input;
+		$this->_id= $input;
 		return $this;
 	}
 	
 	public function setName($input)
 	{
-		$_name= $input;
+		$this->_name= $input;
 		return $this;
 	}
 	
 	public function setLastName($input)
 	{
-		$_lastName= $input;
+		$this->_lastName= $input;
 		return $this;
 	}
 	
 	public function setEmail($input)
 	{
-		$_email= $input;
+		$this->_email= $input;
 		return $this;
 	}
 	
 	public function setPhone($input)
 	{
-		$_phone= $input;
+		$this->_phone= $input;
 		return $this;
 	}
 	
 	public function setMobile($input)
 	{
-		$_mobile= $input;
+		$this->_mobile= $input;
 		return $this;
 	}
 	
 	public function setNotify($input)
 	{
-		$_notify= $input;
+		$this->_notify= $input;
 		return $this;
 	}
 	
 	public function getId()
 	{
-		return $_id;
+		return $this->_id;
 	}
 	
 	public function getName()
 	{
-		return $_name;
+		return $this->_name;
 	}
 	
 	public function getLastName()
 	{
-		return $_lastName;
+		return $this->_lastName;
 	}
 	
 	public function getEmail()
 	{
-		return $_email;
+		return $this->_email;
 	}
 	
 	public function getPhone()
 	{
-		return $_phone;
+		return $this->_phone;
 	}
 	
 	public function getMobile()
 	{
-		return $_mobile;
+		return $this->_mobile;
 	}
 	
 	public function getNotify()
 	{
-		return $_notify;
+		return $this->_notify;
+	}
+	
+	public function getTNotify()
+	{
+		return $this->_notify ? "Si" : "No";
 	}
 }
 
@@ -324,13 +343,14 @@ class Application_Model_Contact
 {
 	// Atributos de un contacto
 	protected $_id;
-	protected $_name;
+	protected $_name= "pepito";
 	protected $_identification;
 	protected $_email;
 	protected $_phonePrimary;
 	protected $_phoneSecondary;
 	protected $_fax;
 	protected $_mobile;
+	protected $_observations;
 	protected $_type;
 	protected $_address;
 	protected $_seller;
@@ -340,26 +360,32 @@ class Application_Model_Contact
 	
 	public function __construct ($input)
 	{
-		$_id= $input->id;
-		$_name= $input->name;
-		$_identification= $input->identification;
-		$_email= $input->email;
-		$_phonePrimary= $input->phonePrimary;
-		$_phoneSecondary= $input->phoneSecondary;
-		$_fax= $input->fax;
-		$_mobile= $input->mobile;
-		$_type= new subContactType ($input->type);
-		$_seller= new subContactSeller($input->seller);
-		$_term= new subContactTerm($input->term);
-		$_priceList= new subContactPriceList($input->priceList);
-		foreach ($input->internalContacts as $intContact)
+		if ($input!=null)
 		{
-			$_internalContacts[]= new subContactIntContact ($intContact);
+			$this->_id= $input->id;
+			$this->_name= $input->name;
+			$this->_identification= $input->identification;
+			$this->_email= $input->email;
+			$this->_phonePrimary= $input->phonePrimary;
+			$this->_phoneSecondary= $input->phoneSecondary;
+			$this->_fax= $input->fax;
+			$this->_mobile= $input->mobile;
+			$this->_observations= $input->observations;
+			$this->_type= new subContactType ($input->type);
+			$this->_address= new subContactAddress ($input->address);
+			$this->_seller= new subContactSeller($input->seller);
+			$this->_term= new subContactTerm($input->term);
+			$this->_priceList= new subContactPriceList($input->priceList);
+			$this->_internalContacts= array();
+			foreach ($input->internalContacts as $intContact)
+			{
+				$this->_internalContacts[]= new subContactIntContact ($intContact);
+			}
 		}
 	}
 	
 	// Mappers para los setters y getters
-	/*public function __set($name, $value)
+	public function __set($name, $value)
 	{
 		$method= 'set'.$name;
 		
@@ -369,8 +395,8 @@ class Application_Model_Contact
 		}
 		
 		$this->$method($value);
-	}*/
-	/*
+	}
+	
 	public function __get($name)
 	{
 		$method= 'get'.$name;
@@ -381,7 +407,7 @@ class Application_Model_Contact
 		}
 		
 		return $this->$method();
-	}*/
+	}
 	
 	// Getters
 	public function getId() { return $this->_id;	}
@@ -392,6 +418,7 @@ class Application_Model_Contact
 	public function getPhoneSecondary() { return $this->_phoneSecondary; }
 	public function getFax() { return $this->_fax; }
 	public function getMobile() { return $this->_mobile; }
+	public function getObservations() { return $this->_observations; }
 	public function getCType() { return $this->_type; }
 	public function getAddress() { return $this->_address; }
 	public function getSeller() { return $this->_seller; }
@@ -408,6 +435,7 @@ class Application_Model_Contact
 	public function setPhoneSecondary($psecondary) { $this->_phoneSecondary= $psecondary; return $this; }
 	public function setFax($fax) { $this->_fax= $fax; return $this; }
 	public function setMobile($mobile) { $this->_mobile= $mobile; return $this; }
+	public function setObservations($obs) { $this->_observations= $obs; return $this; }
 	public function setCType($type) { $this->_type= $type; return $this; }
 	public function setAddress($address) { $this->_address= $address; return $this; }
 	public function setSeller($seller) { $this->_seller= $seller; return $this; }

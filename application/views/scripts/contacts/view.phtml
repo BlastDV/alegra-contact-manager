@@ -1,7 +1,109 @@
-<h1> Detalle de <?= $this->contact->getName() ?></h1>
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Contacts</b> and script/action name <b>view</b></p>
-	
-	<?= var_dump($this->contact) ?><br>
+<!-- Por practicidad ... -->
+<?php $contact= $this->contact; ?>
+
+<h1> Detalle de <?php echo $contact->getName() ?></h1>
+<hr>
+<br/>
+<div id="view-content controls">
+	<!-- Vamos a imprimir todos los datos del usuario actual -->
+	<table class="table table-bordered table-condensed" style="width: 35%">
+		<tr>
+			<th colspan="2">
+				Datos básicos
+			</th>
+		<tr>
+		<tr>
+			<td class="text-right">Nombre:</td>
+			<td><?= $contact->getName()?></td>
+		</tr>
+		<tr>
+			<td class="text-right">Identificacion:</td>
+			<td><?= $contact->getIdentification()?></td>
+		</tr>
+		<tr>
+			<td class="text-right">Email:</td>
+			<td><?= $contact->getEmail()?></td>
+		</tr>
+		<tr>
+			<td class="text-right">Telefono primario:</td>
+			<td><?= $contact->getPhonePrimary()?></td>
+		</tr>
+		<tr>
+			<td class="text-right">Telefono secundario:</td>
+			<td><?= $contact->getPhoneSecondary()?></td>
+		</tr>
+		<tr>
+			<td class="text-right">Fax:</td>
+			<td><?= $contact->getFax()?></td>
+		</tr>
+		<tr>
+			<td class="text-right">Movil:</td>
+			<td><?= $contact->getMobile()?></td>
+		</tr>
+		<tr>
+			<td class="text-right">Observaciones:</td>
+			<td><?= $contact->getObservations()?></td>
+		</tr>
+		<tr>
+			<td class="text-right">Tipo:</td>
+			<td><?= $contact->getCType()->getCTypeText() ?></td>
+		</tr>
+		<tr>
+			<td class="text-right">Direccion:</td>
+			<td><?= $contact->getAddress()->getAddress() ?></td>
+		</tr>
+		<tr>
+			<td class="text-right">Ciudad:</td>
+			<td><?= $contact->getAddress()->getCity() ?></td>
+		</tr>
+		<tr>
+			<th colspan="2">
+				Datos del vendedor:
+			</th>
+		</tr>
+		<tr>
+			<td class="text-right">Nombre:</td>
+			<td><?= $contact->getSeller()->getName() ?></td>
+		</tr>
+		<tr>
+			<td class="text-right">Identificacion:</td>
+			<td><?= $contact->getSeller()->getIdentification() ?></td>
+		</tr>
+		<tr>
+			<td class="text-right">Observaciones:</td>
+			<td><?= $contact->getSeller()->getObservations() ?></td>
+		</tr>
+		<tr>
+			<th colspan="2">
+				Terminos de pago: <?= $contact->getTerm()->getDays() ?> dias
+			</th>
+		</tr>
+		<tr>
+			<th colspan="2">
+				Lista de precios: <?= $contact->getPriceList()->getName() ?>
+			</th>
+		</tr>
+		<tr>
+			<th colspan="2">
+				Personas asociadas: <?= (sizeof($contact->getInternalContacts())) ?>
+			</th>
+		</tr>
+		<?php 
+			foreach ($contact->getInternalContacts() as $current)
+			{
+				echo 
+				"
+					<tr>
+						<td class='text-right'>".$current->getName()." ".$current->getLastName().":</td>
+						<td>
+							Email: ".$current->getEmail()."<br>
+							Telefono: ".$current->getPhone()."<br>
+							Movil: ".$current->getMobile()."<br>
+							Notificar: ".$current->getTNotify()."<br>
+						</td>
+					</tr>
+				";
+			}
+		?>
+	</table>
 </div>

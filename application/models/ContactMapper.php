@@ -10,7 +10,7 @@ class Application_Model_ContactMapper
 		
 		try
 		{
-			$response= $ContactsClient->request();
+			$response= $ContactsClient->request("GET");
 		}
 		catch (Exception $ex)
 		{
@@ -27,7 +27,7 @@ class Application_Model_ContactMapper
 		$ContactsClient= $GLOBALS["AlegraAPI"]["ContactsClient"];
 		try
 		{
-			$response= $ContactsClient->request();
+			$response= $ContactsClient->request("GET");
 		}
 		catch (Exception $ex)
 		{
