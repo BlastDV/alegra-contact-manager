@@ -1,0 +1,37 @@
+<?php echo $this->doctype() ?>
+<html>
+	<head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	  <title>Alegra Contact Manager</title>
+	  <?= $this->headLink()->appendStylesheet('/css/global.css') ?>
+	  <?= $this->headLink()->appendStylesheet('/css/style.css') ?>
+	  <?= $this->headLink()->appendStylesheet('/css/bootstrap.min.css') ?>
+	  <?= $this->headLink()->appendStylesheet('/css/bootstrap-theme.min.css') ?>
+	  <!-- Scripts -->
+        <?php /*$this->headScript()
+            ->prependFile($this->basePath('js/bootstrap.min.js'))
+            ->prependFile($this->basePath('js/jquery-3.1.0.min.js')*/ ?>
+	  
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="navbar-header">
+				<div class="container">
+					<a class="navbar-brand" href="<?= $this->url(array('controller'=>'contacts'), 'default', true) ?>">
+                        Alegra Contact Manager
+                    </a>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			<br>
+			<br>
+			<?= $this->layout()->content ?>	
+			<hr>
+            <footer>
+                <p>Alegra Contact Manager - Pedro Fernandes, no rights reserved - <?= date('Y'); ?></p>
+            </footer>			
+		</div>
+	</body>
+</html>

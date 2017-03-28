@@ -1,0 +1,59 @@
+<?php
+	// Interpretemos el JSON de entrada para poder mostrarlo en pantalla adecuadamente
+	//$this->contacts;
+	/*foreach ($this->contacts as $contact)
+	{
+		echo "id: ".$contact["id"]."<br>";
+	}*/
+	
+?>
+<h1> Contactos </h1>
+<br /><br />
+<div id="view-content">
+	<table class="table">
+		<tr>
+			<th>&nbsp;</th>
+			<th>Nombre</th>
+			<th>Identificacion</th>
+			<th>Correo</th>
+			<th>Telf. Principal</th>
+			<th>Telf. Secundario</th>
+			<th>Acciones</th>
+		</tr>
+	<?php
+		foreach ($this->contacts as $contact)
+		{
+			echo 
+			"
+				<tr>
+					<td style='color: #999999;'>
+						$contact->id
+					</td>
+					<td>
+						$contact->name
+					</td>
+					<td>
+						$contact->identification
+					</td>
+					<td>
+						$contact->email
+					</td>
+					<td>
+						$contact->phonePrimary
+					</td>
+					<td>
+						$contact->phoneSecondary
+					</td>
+					<td>
+						<a href=".$this->url(array('controller' => 'contacts','action'=> 'view', 'id' => $contact->id), 'default', true).">
+							<img src= '".$this->baseUrl()."/img/inf.png' class='crudBtn'>
+						</a>
+						<img src= '".$this->baseUrl()."/img/edit.png' class='crudBtn'>
+						<img src= '".$this->baseUrl()."/img/del.png' class='crudBtn'>
+					</td>
+				</tr>
+			";
+		}
+	?>
+	</table>
+</div>
