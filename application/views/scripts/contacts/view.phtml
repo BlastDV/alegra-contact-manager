@@ -2,6 +2,7 @@
 <?php $contact= $this->contact; ?>
 
 <h1> Detalle de <?php echo $contact->getName() ?></h1>
+<a href="<?= $this->url(array('controller' => 'contacts','action'=> 'index'), 'default', true) ?>">Volver</a>
 <hr>
 <br/>
 <div id="view-content controls">

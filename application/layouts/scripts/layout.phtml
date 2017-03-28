@@ -30,7 +30,9 @@
 			<?= $this->layout()->content ?>	
 			<hr>
             <footer>
-                <p>Alegra Contact Manager - Pedro Fernandes, no rights reserved - <?= date('Y'); ?></p>
+				<a href="<?=  $this->url(array('controller'=>'contacts', 'action'=> 'about'), 'default', true) ?>">
+					<p>Alegra Contact Manager - Pedro Fernandes, no rights reserved - <?= date('Y'); ?></p>
+				</a>
             </footer>			
 		</div>
 	</body>
