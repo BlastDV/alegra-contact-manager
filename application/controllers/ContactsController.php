@@ -27,8 +27,18 @@ class ContactsController extends Zend_Controller_Action
 		$this->view->contact= $contact->getSpecificContact($id);
     }
 
+    public function deleteAction()
+    {
+        $id= $this->getRequest()->getParam('id');
+		$contact= new Application_Model_ContactMapper();
+		$contact->removeContact($id);
+		$this->redirect('/contacts/index');
+    }
+
 
 }
+
+
 
 
 

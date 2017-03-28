@@ -21,6 +21,7 @@ class Application_Model_ContactMapper
 		return $contact;
 	}
 	
+	// Esto recupera todos los contactos de Alegra
 	public function fetchAll()
 	{
 		$ContactsClient= $GLOBALS["AlegraAPI"]["ContactsClient"];
@@ -35,18 +36,26 @@ class Application_Model_ContactMapper
 		
 		$contacts= json_decode($response->getBody());
 		
-		/*foreach($resultSet as $row)
-		{
-			$entry= new Application_Model_Guestbook();
-			$entry->setId($row->id)
-					->setEmail($row->email)
-					->setComment($row->comment)
-					->setCreated($row->created);
-					
-			$entries[]= $entry;
-		}*/
-		
 		return $contacts;
+	}
+	
+	// Esto permite eliminar un contacto de alegra
+	public function removeContact($id)
+	{
+		$ContactsClient= $GLOBALS["AlegraAPI"]["ContactsClient"];
+		$ContactsClient->setUri($GLOBALS["AlegraAPI"]["contactsAPI"]."/".$id);
+		
+		try
+		{
+			$response= $ContactsClient->request('DELETE');
+		}
+		catch (Exception $ex)
+		{
+			$response= "Error en la conexion al API: ".$ex->getMessage();
+		}
+		
+		
+		
 	}
 
 

@@ -15,6 +15,7 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="about"/>
           <actionMethod actionName="view"/>
+          <actionMethod actionName="delete"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
@@ -45,6 +46,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Contacts">
             <viewScriptFile forActionName="view"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Contacts">
+            <viewScriptFile forActionName="delete"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
@@ -87,6 +91,7 @@
             <testApplicationActionMethod forActionName="index"/>
             <testApplicationActionMethod forActionName="about"/>
             <testApplicationActionMethod forActionName="view"/>
+            <testApplicationActionMethod forActionName="delete"/>
           </testApplicationControllerFile>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>

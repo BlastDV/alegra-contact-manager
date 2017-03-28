@@ -49,7 +49,9 @@
 							<img src= '".$this->baseUrl()."/img/inf.png' class='crudBtn'>
 						</a>
 						<img src= '".$this->baseUrl()."/img/edit.png' class='crudBtn'>
-						<img src= '".$this->baseUrl()."/img/del.png' class='crudBtn'>
+						<a href=".$this->url(array('controller' => 'contacts','action'=> 'delete', 'id' => $contact->id), 'default', true).">
+							<img src= '".$this->baseUrl()."/img/del.png' class='crudBtn'>
+						</a>
 					</td>
 				</tr>
 			";
